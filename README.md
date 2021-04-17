@@ -33,6 +33,7 @@ Arduino NANO 33 BLE로 TinyML을 실습하기 위한 코스입니다.
   * 사용자의 움직임을 예측하고, 웹페이지를 통해 직접 2개의 예측된 데이터의 가능값(possibilities)을 표시합니다.
 
 
+
 [Project II : Open LED using Voice]
 * [Audio Data Acquisition]
   * The data of microphone is sent through serial port
@@ -50,6 +51,7 @@ Arduino NANO 33 BLE로 TinyML을 실습하기 위한 코스입니다.
   * Using jupyter notebook to train model
 * [Open LED using Voice]
   * Predict voice, switch LED light according to voice content
+
 
 
 [Project III : Count rope jumping]
