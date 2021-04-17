@@ -8,18 +8,25 @@ Arduino NANO 33 BLE로 TinyML을 실습하기 위한 코스입니다.
 [Project I : Gesture Recognition](https://#)
 * [Get Gyroscope Data]
   * The data of gyroscope is sent through serial port
+  * 자이로스코프의 데이터를 시리얼포트를 통해 전송 받아봅니다.
 * [Vibration Induction]
   * The LED lights up when movement is detected
+  * 움직임이 감지되면 LED를 켜봅니다.
 * [Directional Sensing]
   * LED lights indicate direction with different colors
+  * LED 색으로 방향을 나태내 봅니다.
 * [Get Training Data]
   * Collect 100 repeated operations of the same gesture, and when it reaches 100 times, the red light will be on. The green light will be on when the operations exceed 100 times, and the data in the format of CSV will be sent through the serial port
+  * 같은 움직임을 100회 반복하여 그 데이터를 모아봅니다. 빨간색 LED가 켜진 동안에 데이터를 모으고 초록색 LED가 켜지면 100회를 넘은 것으로 표시할 수 있습니다. 해당 데이터들은 시리얼포트를 통해 CSV파일로 저장합니다.
 * [Train Gesture Model]
   * Using jupyter notebook to train model
+  * jupyter를 통해 데이터를 트레이닝합니다.
 * [Predict Gesture]
   * Predict the gesture and send the two gesture possibilities through the serial port
+  * 사용자의 움직임을 예측하고, 2개의 예측된 데이터의 가능값(possibilities)을 시리얼포트로 전송합니다.
 * [Visualize Predict Gesture]
   * Predict the gesture and show the two gesture possibilities through web pages.
+  * 사용자의 움직임을 예측하고, 웹페이지를 통해 직접 2개의 예측된 데이터의 가능값(possibilities)을 표시합니다.
 
 [Project II : Open LED using Voice]
 * [Audio Data Acquisition]
