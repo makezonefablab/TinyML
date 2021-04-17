@@ -2,6 +2,7 @@
 
 Arduino NANO 33 BLE로 TinyML을 실습하기 위한 코스입니다.
 
+<img src="https://github.com/makezonefablab/TinyML/blob/main/img/nano33ble.jpeg" title="아두이노 나노 33 BLE " alt="RubberDuck"></img><br/>
 
 # Content 目录
 
