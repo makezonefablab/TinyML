@@ -5,7 +5,7 @@ Arduino NANO 33 BLE로 TinyML을 실습하기 위한 코스입니다.
 
 # Content 目录
 
-[Project I : Gesture Recognition](https://www.bilibili.com/video/BV1Xg4y1q7EF)
+[Project I : Gesture Recognition](https://#)
 * [Get Gyroscope Data]
   * The data of gyroscope is sent through serial port
 * [Vibration Induction]
