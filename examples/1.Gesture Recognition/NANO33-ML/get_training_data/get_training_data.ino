@@ -42,9 +42,10 @@ void setup() {
   pixels.clear();
   pixels.show();
   pixels.setPixelColor(0, pixels.Color(0,0,0));
-  pixels.show(); //打印
+  pixels.show();
   
 }
+
 void loop() {
 
   Serial.print("aX:");Serial.print(accel_x);

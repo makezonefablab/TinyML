@@ -1,8 +1,8 @@
 #include <Arduino_LSM9DS1.h>
 #include <Adafruit_NeoPixel.h>
 
-#define PIN            12 
-#define NUM      1 //灯个数
+#define PIN      12 
+#define NUM      1
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUM, PIN, NEO_GRB + NEO_KHZ800);
 
 float accel_x, accel_y, accel_z;
@@ -21,9 +21,10 @@ void setup() {
   pixels.clear();
   pixels.show();
   pixels.setPixelColor(0, pixels.Color(0,0,0));
-  pixels.show(); //打印
+  pixels.show();
   
 }
+
 void loop() {
 
   Serial.print("aX:");Serial.print(accel_x);

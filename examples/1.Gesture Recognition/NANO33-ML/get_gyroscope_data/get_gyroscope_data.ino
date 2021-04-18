@@ -13,6 +13,7 @@ void setup() {
   }
   
 }
+
 void loop() {
   //가속도센서
   if (IMU.accelerationAvailable()) {
