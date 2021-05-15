@@ -1,4 +1,4 @@
-# Arduino LSM9DS3 library
+# Arduino LSM9DS1 library
 
 Arduino NANO 33 BLE에 장착된 IMU센서 입니다.
 
