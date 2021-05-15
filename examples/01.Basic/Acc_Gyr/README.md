@@ -20,3 +20,11 @@ Magnetometer Output data rate is fixed at 20 Hz
 
 
 <img src="https://github.com/makezonefablab/TinyML/blob/main/examples/01.Basic/Acc_Gyr/imgs/LSM9DS3.png" width="750" title="아두이노 나노 33 BLE IMU" alt="아두이노 나노 33 BLE IMU"></img><br/>
+
+<img src="https://t1.daumcdn.net/cfile/tistory/21526E465614BA7104.jpeg" title="자이로 가속도" alt="자이로 가속도"></img><br/>
+
+<img src="https://github.com/makezonefablab/TinyML/blob/main/examples/01.Basic/Acc_Gyr/imgs/chart_acc.png" width="750" title="가속도 센서" alt="가속도 센서"></img><br/>
+
+<img src="https://github.com/makezonefablab/TinyML/blob/main/examples/01.Basic/Acc_Gyr/imgs/chart_gyr.png" width="750" title="자이로 센서" alt="자이로 센서"></img><br/>
+
+<img src="https://github.com/makezonefablab/TinyML/blob/main/examples/01.Basic/Acc_Gyr/imgs/chart_mag.png" width="750" title="마그넷 센서" alt="마그넷 센서"></img><br/>
