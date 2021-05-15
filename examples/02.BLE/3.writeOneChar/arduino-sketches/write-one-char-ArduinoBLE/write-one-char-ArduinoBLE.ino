@@ -1,5 +1,13 @@
 /*
   LED
+
+  This example creates a BLE peripheral with service that contains a
+  characteristic to control an LED.
+
+  The circuit:
+  - Arduino MKR WiFi 1010 or Arduino Uno WiFi Rev2 board
+
+  This example code is in the public domain.
 */
 
 #include <ArduinoBLE.h>
@@ -9,7 +17,7 @@ BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // BLE LED Servic
 // BLE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
 BLEByteCharacteristic switchCharacteristic("19B10001-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
 
-const int ledPin = A6; // pin to use for the LED
+const int ledPin = 4; // pin to use for the LED
 
 void setup() {
   Serial.begin(9600);
@@ -45,23 +53,23 @@ void setup() {
 }
 
 void loop() {
-  // BLE주변장치로부터 연결 대기 
+  // listen for BLE peripherals to connect:
   BLEDevice central = BLE.central();
 
-  // 주변 장치와 연결이 되었다면 
+  // if a central is connected to peripheral:
   if (central) {
     Serial.print("Connected to central: ");
-    // 연결된 주변 장치의 mac주소 출력 
+    // print the central's MAC address:
     Serial.println(central.address());
 
-    // 주변장치와 연결이 유지되어 있다면 
+    // while the central is still connected to peripheral:
     while (central.connected()) {
-      
-      // 주변장치가 char에 값을 썼으면, 해당 값을 LED에 적
+      // if the remote device wrote to the characteristic,
+      // use the value to control the LED:
       if (switchCharacteristic.written()) {
         char value = char(switchCharacteristic.value());
         Serial.println(value);
-        if (value == '1') { // If the value is '1'
+        if (value == '1') { // If the value is 'H'
           Serial.println("LED on");
           digitalWrite(ledPin, HIGH);         // will turn the LED on
         } else { // If the value is anything else
@@ -69,7 +77,6 @@ void loop() {
           digitalWrite(ledPin, LOW);          // will turn the LED off
         }
       }
-      
     }
 
     // when the central disconnects, print it out:

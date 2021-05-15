@@ -70,11 +70,11 @@ void loop() {
 
     // LED 값에 따른 LED제어 
     if (ledCharacteristic.value()) {
-      Serial.println("LED on");
-      digitalWrite(ledPin, HIGH);
-    } else {
       Serial.println("LED off");
       digitalWrite(ledPin, LOW);
+    } else {
+      Serial.println("LED on");
+      digitalWrite(ledPin, HIGH);
     }
   }
 }
