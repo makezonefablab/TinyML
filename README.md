@@ -24,7 +24,7 @@ Arduino NANO 33 BLE로 TinyML을 실습하기 위한 코스입니다.
 
 # tinyML Contents
 
-[Project I : Gesture Recognition](https://github.com/makezonefablab/TinyML/tree/main/examples/1.Gesture%20Recognition/NANO33-ML)
+[Project I : Gesture Recognition](https://github.com/makezonefablab/TinyML/tree/main/examples/03.Gesture%20Recognition/NANO33-ML)
 * [Get Gyroscope Data]
   * The data of gyroscope is sent through serial port
   * 자이로스코프의 데이터를 시리얼포트를 통해 전송 받아봅니다.
