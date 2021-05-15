@@ -10,7 +10,7 @@ Arduino NANO 33 BLE로 TinyML을 실습하기 위한 코스입니다.
 <img src="https://github.com/makezonefablab/TinyML/blob/main/imgs/Nano-BLE-Sense-pinout.jpeg" width="750" title="아두이노 나노 33 BLE " alt="PinOut"></img><br/>
 
 # Basic Contents
-[Project I : Basic Course](https://github.com/makezonefablab/TinyML/tree/main/examples/1.Gesture%20Recognition/NANO33-ML)
+[Project I : Basic Course](https://github.com/makezonefablab/TinyML/tree/main/examples/01.Basic)
 * [LED Blink]
   * 아두이노의 가장 기본적인 LED 깜빡임을 제어해 봅니다.
 * [Blink Button]
