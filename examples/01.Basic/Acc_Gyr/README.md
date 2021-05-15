@@ -16,3 +16,6 @@ Magnetometer range is set at [-400, +400] uT +/-0.014 uT
 Accelerometer Output data rate is fixed at 104 Hz
 Gyroscope Output data rate is fixed at 104 Hz
 Magnetometer Output data rate is fixed at 20 Hz
+
+
+<img src="https://github.com/makezonefablab/TinyML/blob/main/examples/01.Basic/Acc_Gyr/imgs/LSM9DS3.png" width="750" title="아두이노 나노 33 BLE IMU" alt="아두이노 나노 33 BLE IMU"></img><br/>
