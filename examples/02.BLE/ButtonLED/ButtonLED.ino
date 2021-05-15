@@ -19,7 +19,7 @@ void setup() {
   //while (!Serial);
 
   pinMode(ledPin, OUTPUT); // LED핀은 출력으로 설정 
-  pinMode(buttonPin, INPUT); // 버튼핀은 입력으로 설정 
+  pinMode(buttonPin, INPUT_PULLUP); // 버튼핀은 입력으로 설정 
 
   // BLE초기화 및 시작 
   if (!BLE.begin()) {
