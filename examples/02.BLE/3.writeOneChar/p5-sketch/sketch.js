@@ -11,7 +11,8 @@ let myBLE;
 
 function setup() {
 
-  createCanvas(710, 400);
+  createCanvas(300, 400);
+  background(220);
   
   myBLE = new p5ble();
 
@@ -26,17 +27,17 @@ function setup() {
 
   // Create a 'Write' button
   const writeButton = createButton('Write');
-  writeButton.position(input.x + input.width + 15, 100);
+  writeButton.position(input.x + input.width + 15, 130);
   writeButton.mousePressed(writeToBle);
 
   // Create a 'Write' button
   const onButton = createButton('ON');
-  onButton.position(15, 150);
+  onButton.position(15, 200);
   onButton.mousePressed(onToBle);
 
   // Create a 'Write' button
   const offButton = createButton('OFF');
-  offButton.position(15, 200);
+  offButton.position(15, 230);
   offButton.mousePressed(offToBle);
 }
 
@@ -68,5 +69,5 @@ function onToBle() {
 function offToBle() {
   // Write the value of the input to the myCharacteristic
   myBLE.write(myCharacteristic, "0");
-  background(0);
+  background(220);
 }

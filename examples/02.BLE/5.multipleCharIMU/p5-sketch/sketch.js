@@ -25,6 +25,7 @@ function setup() {
 
   // Create a 'Connect and Start Notifications' button
   const connectButton = createButton('Connect and Start Notifications')
+  connectButton.position(10, 630);
   connectButton.mousePressed(connectAndStartNotify);
 }
 

@@ -18,10 +18,12 @@ function setup() {
 
   // Create a 'Connect' button
   const connectButton = createButton('Connect')
+  connectButton.position(10, 300);
   connectButton.mousePressed(connectToBle);
 
   // Create a 'Disconnect' button
   const disconnectButton = createButton('Disconnect')
+  disconnectButton.position(10, 330);
   disconnectButton.mousePressed(disconnectToBle);
 }
 

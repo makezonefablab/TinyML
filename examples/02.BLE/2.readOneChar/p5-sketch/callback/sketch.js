@@ -19,7 +19,9 @@ function setup() {
 
   // Create a 'Connect' button
   const connectButton = createButton('Connect')
+  connectButton.position(10,230);
   connectButton.mousePressed(connectToBle);
+
 }
 
 function connectToBle() {

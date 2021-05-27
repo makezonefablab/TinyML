@@ -13,7 +13,7 @@ let rSlider, gSlider, bSlider;
 
 function setup() {
 
-  createCanvas(710, 400);
+  createCanvas(300, 400);
   textSize(15);
   
   myBLE = new p5ble();
@@ -29,7 +29,7 @@ function setup() {
 
   // Create a 'Write' button
   const writeButton = createButton('Write');
-  writeButton.position(gSlider.x + gSlider.width + 65, 100);
+  writeButton.position(gSlider.x + gSlider.width + 65, 130);
   writeButton.mousePressed(writeToBle);
 
 
@@ -39,7 +39,7 @@ function draw() {
   const g = gSlider.value();
   background(0, g, 0);
   fill(255);
-  text(g, gSlider.x * 2 + gSlider.width, 35);
+  text(g, gSlider.x * 2 + gSlider.width+50, 35);
 }
 
 function connectToBle() {
