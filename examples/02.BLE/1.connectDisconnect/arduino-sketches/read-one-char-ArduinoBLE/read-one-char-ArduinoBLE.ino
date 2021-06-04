@@ -27,7 +27,7 @@ BLEIntCharacteristic buttonCharacteristic("19B10012-E8F2-537E-4F6C-D104768A1214"
 int sensorValue = 255;
 void setup() {
   Serial.begin(9600);
-  while (!Serial);
+  //while (!Serial);
 
   pinMode(ledPin, OUTPUT); // use the LED as an output
   pinMode(buttonPin, INPUT); // use button pin as an input

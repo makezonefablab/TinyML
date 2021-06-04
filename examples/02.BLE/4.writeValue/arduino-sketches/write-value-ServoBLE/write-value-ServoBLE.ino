@@ -11,20 +11,24 @@
 */
 
 #include <ArduinoBLE.h>
+#include <Servo.h>
 
-BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // BLE LED Service
+BLEService servoService("19B10000-E8F2-537E-4F6C-D104768A1214"); // BLE LED Service
 
 // BLE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
 BLEByteCharacteristic switchCharacteristic("19B10001-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
 
-const int ledPin = A6; // pin to use for the LED
+const int servoPin = 4; // pin to use for the LED
+
+Servo myservo;  //서보모터 변수 
+
+int pos = 0;    //현재 위치값을 저장할 변수 
 
 void setup() {
   Serial.begin(9600);
   //while (!Serial);
 
-  // set LED pin to output mode
-  pinMode(ledPin, OUTPUT);
+  myservo.attach(servoPin);  // 서보모터 변수를 실제 연결된 핀과 연결  
 
   // begin initialization
   if (!BLE.begin()) {
@@ -34,14 +38,14 @@ void setup() {
   }
 
   // set advertised local name and service UUID:
-  BLE.setLocalName("LED");
-  BLE.setAdvertisedService(ledService);
+  BLE.setLocalName("ServoBLE");
+  BLE.setAdvertisedService(servoService);
 
   // add the characteristic to the service
-  ledService.addCharacteristic(switchCharacteristic);
+  servoService.addCharacteristic(switchCharacteristic);
 
   // add service
-  BLE.addService(ledService);
+  BLE.addService(servoService);
 
   // set the initial value for the characeristic:
   switchCharacteristic.writeValue(0);
@@ -49,7 +53,7 @@ void setup() {
   // start advertising
   BLE.advertise();
 
-  Serial.println("BLE LED Peripheral");
+  Serial.println("BLE Servo Peripheral");
 }
 
 void loop() {
@@ -67,15 +71,11 @@ void loop() {
       // if the remote device wrote to the characteristic,
       // use the value to control the LED:
       if (switchCharacteristic.written()) {
-        char value = char(switchCharacteristic.value());
+        int value = switchCharacteristic.value();
         Serial.println(value);
-        if (value == '1') { // If the value is 'H'
-          Serial.println("LED on");
-          digitalWrite(ledPin, HIGH);         // will turn the LED on
-        } else { // If the value is anything else
-          Serial.println(F("LED off"));
-          digitalWrite(ledPin, LOW);          // will turn the LED off
-        }
+        if (value > 180)
+           value = 180;
+        myservo.write(value);
       }
     }
 
