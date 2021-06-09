@@ -23,15 +23,16 @@ function setup() {
   textSize(20);
   textAlign(CENTER, CENTER);
 
-  
-  // Create a text input
-  input = createInput();
-  input.position(15, 200);
 
-  // Create a 'Write' button
-  const writeButton = createButton('Write');
-  writeButton.position(input.x + input.width + 15, 230);
-  writeButton.mousePressed(writeToServo);
+  // Create a 'Open' button
+  const OpenButton = createButton('Open');
+  OpenButton.position(15, 180);
+  OpenButton.mousePressed(openToDoor);
+
+  // Create a 'Close' button
+  const CloseButton = createButton('Close');
+  CloseButton.position(15, 230);
+  CloseButton.mousePressed(closeToDoor);
 
   // Create a 'Write' button
   const onButton = createButton('ON');
@@ -98,6 +99,18 @@ function writeToServo() {
   const inputValue = input.value();
   // Write the value of the input to the myCharacteristic
   myBLE.write(ServoCharacteristic, inputValue);
+}
+
+function openToDoor() {
+  // Write the value of the input to the myCharacteristic
+  myBLE.write(ServoCharacteristic, "1");
+  background(128);
+}
+
+function closeToDoor() {
+  // Write the value of the input to the myCharacteristic
+  myBLE.write(ServoCharacteristic, "0");
+  background(220);
 }
 
 function onToLED() {

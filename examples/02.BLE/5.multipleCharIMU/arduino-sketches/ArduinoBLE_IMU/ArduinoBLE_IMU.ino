@@ -21,7 +21,7 @@ BLECharacteristic gyroscopeCharacteristic    ("2A5A20B9-0002-4B9C-9C69-4975713E0
 BLECharacteristic magnetCharacteristic       ("2A5A20B9-0002-4B9C-9C69-4975713E0FF2", BLENotify, sizeof(float) * 3);
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   //  while (!Serial); // uncomment to wait for Serial port to be opened
 
   if (!IMU.begin()) {

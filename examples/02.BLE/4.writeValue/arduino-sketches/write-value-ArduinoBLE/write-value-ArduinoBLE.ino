@@ -17,10 +17,10 @@ BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // BLE LED Servic
 // BLE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
 BLEByteCharacteristic switchCharacteristic("19B10001-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
 
-const int ledPin = 4; // pin to use for the LED
+const int ledPin = A6; // pin to use for the LED
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   //while (!Serial);
 
   // set LED pin to output mode

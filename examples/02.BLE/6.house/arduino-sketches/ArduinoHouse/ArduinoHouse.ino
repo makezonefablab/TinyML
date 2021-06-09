@@ -34,7 +34,7 @@ BLEByteCharacteristic LEDCharacteristic     ("2A5A20B9-0002-4B9C-9C69-4975713E0F
 BLEByteCharacteristic ServoCharacteristic   ("2A5A20B9-0002-4B9C-9C69-4975713E0FF2", BLERead | BLEWrite);
 
 void setup() {
-  Serial.begin(9600); // 시리얼 통신을 위한 통신속도 설정 
+  Serial.begin(115200); // 시리얼 통신을 위한 통신속도 설정 
   delay(1500);
 
   pinMode(LEDPIN, OUTPUT);
@@ -96,7 +96,7 @@ void loop() {
   dhtvalues[0] = dht_temp;
   dhtvalues[1] = dht_humidity;
 
-  //snprintf(dht_out, 64, "DHT: %0.2f, %0.2f", dht_temp, dht_humidity);
+  snprintf(dht_out, 64, "DHT: %0.2f, %0.2f", dht_temp, dht_humidity);
   //Serial.println(dht_out);
   
   DHTCharacteristic.writeValue(random(0,100));
@@ -105,9 +105,9 @@ void loop() {
 
   // LED상태가 바뀌었으면 
   if (LEDCharacteristic.written()) {
-    char value = char(LEDCharacteristic.value());
+    char value1 = char(LEDCharacteristic.value());
     // LED 값에 따른 LED제어 
-    if (value =='0') {
+    if (value1 =='0') {
       Serial.println("LED off");
       digitalWrite(LEDPIN, LOW);
     } else {
@@ -119,17 +119,16 @@ void loop() {
   // 서보값이 바뀌었으 
   if (ServoCharacteristic.written()) {
     
-    int angle = ServoCharacteristic.value();
+    char value2 = char(ServoCharacteristic.value());
     
-    Serial.print("Servo : ");
-    Serial.println(angle);
-    
-    // LED 값에 따른 LED제어 
-    if (ServoCharacteristic.value() <= 0) {
+    // servo 값에 따른 servo제어 
+    if (value2 =='0') {
+      Serial.println("Door close");
       myservo.write(0);
     }
     else
     {
+      Serial.println("Door open");
       myservo.write(70);
     }
   }

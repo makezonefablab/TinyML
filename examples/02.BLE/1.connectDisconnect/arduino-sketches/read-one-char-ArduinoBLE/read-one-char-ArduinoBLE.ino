@@ -25,8 +25,9 @@ BLEService ledService("19B10010-E8F2-537E-4F6C-D104768A1214"); // create service
 BLEIntCharacteristic buttonCharacteristic("19B10012-E8F2-537E-4F6C-D104768A1214", BLERead | BLENotify);
 
 int sensorValue = 255;
+
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   //while (!Serial);
 
   pinMode(ledPin, OUTPUT); // use the LED as an output
@@ -40,7 +41,7 @@ void setup() {
   }
 
   // set the local name peripheral advertises
-  BLE.setLocalName("ButtonLED");
+  BLE.setLocalName("ButtonLED_JSY");
   // set the UUID for the service this peripheral advertises:
   BLE.setAdvertisedService(ledService);
 

@@ -25,7 +25,7 @@ Servo myservo;  //서보모터 변수
 int pos = 0;    //현재 위치값을 저장할 변수 
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   //while (!Serial);
 
   myservo.attach(servoPin);  // 서보모터 변수를 실제 연결된 핀과 연결  

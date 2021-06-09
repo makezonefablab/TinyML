@@ -15,7 +15,7 @@ BLEByteCharacteristic ledCharacteristic("19B10011-E8F2-537E-4F6C-D104768A1214", 
 BLEByteCharacteristic buttonCharacteristic("19B10012-E8F2-537E-4F6C-D104768A1214", BLERead | BLENotify);
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   //while (!Serial);
 
   pinMode(ledPin, OUTPUT); // LED핀은 출력으로 설정 
