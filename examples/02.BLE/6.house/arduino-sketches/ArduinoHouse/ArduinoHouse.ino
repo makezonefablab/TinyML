@@ -29,7 +29,7 @@ Servo myservo;  //서보모터 변수
 DHT_Unified dht(DHTPIN, DHT11);
 
 BLEService        HouseService                 ("2A5A20B9-0000-4B9C-9C69-4975713E0FF2");
-BLEByteCharacteristic DHTCharacteristic   ("2A5A20B9-0001-4B9C-9C69-4975713E0FF2", BLERead | BLENotify);
+BLECharacteristic DHTCharacteristic   ("2A5A20B9-0001-4B9C-9C69-4975713E0FF2", BLERead | BLENotify, sizeof(float) * 2);
 BLEByteCharacteristic LEDCharacteristic     ("2A5A20B9-0002-4B9C-9C69-4975713E0FF2", BLERead | BLEWrite);
 BLEByteCharacteristic ServoCharacteristic   ("2A5A20B9-0002-4B9C-9C69-4975713E0FF2", BLERead | BLEWrite);
 
@@ -82,7 +82,7 @@ void loop() {
   // BLE로 들어오는 신호 검출 
   BLE.poll();
 
-  float dhtvalues[2];
+  float dhtvalues[2] = {0.0,0.0};
   
   sensors_event_t event;
   float dht_temp, dht_humidity;
@@ -96,10 +96,12 @@ void loop() {
   dhtvalues[0] = dht_temp;
   dhtvalues[1] = dht_humidity;
 
-  snprintf(dht_out, 64, "DHT: %0.2f, %0.2f", dht_temp, dht_humidity);
-  //Serial.println(dht_out);
+  snprintf(dht_out, 64, "DHT: %0.2f, %0.2f", dhtvalues[0], dhtvalues[1]);
+  Serial.println(dht_out);
+
+  DHTCharacteristic.writeValue(dhtvalues, sizeof(dhtvalues));
   
-  DHTCharacteristic.writeValue(random(0,100));
+  //DHTCharacteristic.writeValue(random(0,100));
 
 
 

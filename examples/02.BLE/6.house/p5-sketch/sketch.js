@@ -69,7 +69,8 @@ function gotCharacteristics(error, characteristics) {
   for (let i = 0; i < characteristics.length; i++) {
     if (i == 0) {
       valueCharacteristic = characteristics[i];
-      myBLE.read(valueCharacteristic, gotValue);
+      //myBLE.read(valueCharacteristic, gotValue);
+      myBLE.startNotifications(valueCharacteristic, handleDHTSensor, 'custom');
     }else if (i == 1) {
       LEDCharacteristic = characteristics[i];
     }else if (i == 2) {
@@ -82,7 +83,8 @@ function gotCharacteristics(error, characteristics) {
 
 // A function that will be called once got characteristics
 function handleDHTSensor(data) {
-  temp = data.getFloat32(0);
+  temp = data.getFloat32(0, true);
+  humi = data.getFloat32(4, true);
 }
 
 // A function that will be called once got values
